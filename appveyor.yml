@@ -1,0 +1,15 @@
+version: '{build}'
+
+clone_folder: C:\projects\libuvsharp
+
+before_build:
+- ps: nuget restore "$Env:APPVEYOR_BUILD_FOLDER\LibuvSharp.sln"
+
+build_script:
+- ps: |
+    & cov-build.exe --dir cov-int msbuild "$Env:APPVEYOR_BUILD_FOLDER\LibuvSharp.sln" `
+      /verbosity:normal `
+      /p:Configuration=Release `
+      /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" `
+      /property:ExtraDefine="LEAKS_IDENTIFYING"
+
