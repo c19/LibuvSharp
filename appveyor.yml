@@ -5,7 +5,7 @@ clone_folder: C:\projects\libuvsharp
 install:
 - ps: Start-FileDownload 'https://github.com/libuv/libuv/archive/v1.7.5.zip'
 - cmd: 7z x v1.7.5.zip & cd libuv-1.7.5 & vcbuild.bat %arch% shared debug
-- cmd: mkdir LibuvSharp\bin\Release\ & cp libuv-1.7.5\Debug\libuv.dll LibuvSharp\bin\Release\uv.dll
+- cmd: mkdir LibuvSharp\bin\Debug\ & cp libuv-1.7.5\Debug\libuv.dll LibuvSharp\bin\Debug\uv.dll
 
 before_build:
 - ps: nuget restore "$Env:APPVEYOR_BUILD_FOLDER\LibuvSharp.sln"
