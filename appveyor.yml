@@ -15,4 +15,4 @@ build_script:
 - ps: msbuild "$Env:APPVEYOR_BUILD_FOLDER\LibuvSharp.Tests\LibuvSharp.Tests.csproj"
 
 test_script:
-- ps: cd LibuvSharp\bin\Debug & xunit.runner.console.2.1.0/tools/xunit.console.exe LibuvSharp.Tests.dll
+- cmd: cd LibuvSharp\bin\Debug & xunit.runner.console.2.1.0/tools/xunit.console.exe LibuvSharp.Tests.dll
